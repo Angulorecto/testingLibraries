@@ -1,32 +1,13 @@
-<html>
-  <head>
-    <title>Animations</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/8121/8121259.png">
-    <script src="node_modules/animejs/lib/anime.min.js"></script>
-  </head>
-  <body>
-    <div class="square" align="center" style="background-color:red; width:25px; height:25px;"></div>
-    <script>
-      anime({
-        targets: '.square .el',
-        autoplay: true,
-        translateX: {
-        value: 250,
-        duration: 800
-      },
-      rotate: {
-        value: 360,
-        duration: 1800,
-        easing: 'easeInOutSine'
-      },
-      scale: {
-        value: 2,
-        duration: 1600,
-        delay: 800,
-        easing: 'easeInOutQuart'
-      },
-        delay: 250 // All properties except 'scale' inherit 250ms delay
-      });
-    </script>
-  </body>
-</html>
+<link href="https://fonts.googleapis.com/css?family=Poppins:600" rel="stylesheet">
+
+
+<main>
+  <div class="button">
+    <div class="text">Submit</div>
+  </div>
+  <div class="progress-bar"></div>
+  <svg x="0px" y="0px"
+	 viewBox="0 0 25 30" style="enable-background:new 0 0 25 30;">
+    <path class="check" class="st0" d="M2,19.2C5.9,23.6,9.4,28,9.4,28L23,2"/>
+  </svg>
+</main>
