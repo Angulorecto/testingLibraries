@@ -1,56 +1,24 @@
-// src/App.js
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from 'react-router-dom';
+// app.js
+import page from 'page';
 
-function Home() {
-  return <h2>Home</h2>;
-}
+const contentDiv = document.getElementById('content');
 
-function About() {
-  return <h2>About</h2>;
-}
+page('/', () => {
+  contentDiv.innerHTML = '<h2>Home</h2>';
+});
 
-function Contact() {
-  return <h2>Contact</h2>;
-}
+page('/about', () => {
+  contentDiv.innerHTML = '<h2>About</h2>';
+});
 
-function App() {
-  return (
-    <Router>
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+page('/contact', () => {
+  contentDiv.innerHTML = '<h2>Contact</h2>';
+});
 
-        <Switch>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/contact">
-            <Contact />
-          </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
-  );
-}
+// Add a 404 route
+page('*', () => {
+  contentDiv.innerHTML = '<h2>404 Not Found</h2>';
+});
 
-export default App;
+// Start the router
+page();
