@@ -1,24 +1,31 @@
 // app.js
-import page from 'page';
-
 const contentDiv = document.getElementById('content');
 
-page('/', () => {
-  contentDiv.innerHTML = '<h2>Home</h2>';
-});
+// Function to update content based on the route
+function updateContent(route) {
+  switch (route) {
+    case '/':
+      contentDiv.innerHTML = '<h2>Home</h2>';
+      break;
+    case '/about':
+      contentDiv.innerHTML = '<h2>About</h2>';
+      break;
+    case '/contact':
+      contentDiv.innerHTML = '<h2>Contact</h2>';
+      break;
+    default:
+      contentDiv.innerHTML = '<h2>404 Not Found</h2>';
+  }
+}
 
-page('/about', () => {
-  contentDiv.innerHTML = '<h2>About</h2>';
-});
+// Handle navigation events
+function handleNavigation() {
+  const path = window.location.pathname;
+  updateContent(path);
+}
 
-page('/contact', () => {
-  contentDiv.innerHTML = '<h2>Contact</h2>';
-});
+// Initial content update
+handleNavigation();
 
-// Add a 404 route
-page('*', () => {
-  contentDiv.innerHTML = '<h2>404 Not Found</h2>';
-});
-
-// Start the router
-page();
+// Listen for navigation events
+window.addEventListener('popstate', handleNavigation);
